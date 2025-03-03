@@ -24,10 +24,10 @@ Think about which debugging methods you found most useful and how you might appl
 // Description:
 // This program is intended to display a simple prompt in the console but fails to run.
 
-console.log("Welcome to the bootcamp
+console.log("Welcome to the bootcamp");
 
 // What’s Wrong?
-
+/* This is Syntax error. Missing closing parenthesis*/  
 
 // Program B
 // Description:
@@ -35,12 +35,16 @@ console.log("Welcome to the bootcamp
 
 let numbers = [2, 4, "eight"];
 for (let i = 0; i < numbers.length; i++) {
-  let doubled = numbers[i] * 2;
-  console.log(doubled);
+  if(typeof(numbers[i])==="number")
+    {
+      let doubled = (numbers[i]) * 2;
+      console.log(doubled);
+    }
+  
 }
 
 // What’s Wrong?
-
+// Runtime error : using a string value "eight" to multiply with a number.
 
 
 // Program C (Logic Error)
@@ -51,12 +55,13 @@ function isPrime(num) {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return true;  // Supposed to indicate num is NOT prime
+      return false;  // Supposed to indicate num is NOT prime
     }
   }
-  return false; // Supposed to indicate num IS prime
+  return true; // Supposed to indicate num IS prime
 }
 
 console.log(isPrime(7)); // Expected true but gets false
 
 // What’s Wrong?
+//This is logical error. Instead of returning prime false for non-prime numbers,the program returned true. Switched the true and false return statements.
